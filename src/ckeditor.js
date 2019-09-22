@@ -9,6 +9,8 @@ import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classicedi
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Clipboard from '@ckeditor/ckeditor5-clipboard/src/clipboard';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
@@ -29,6 +31,8 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -37,8 +41,10 @@ ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
+	Alignment,
 	Bold,
 	Italic,
+	Clipboard,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
@@ -56,7 +62,9 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	FontFamily
+	FontFamily,
+	FontSize,
+	Base64UploadAdapter
 ];
 
 // Editor configuration.
