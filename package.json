@@ -1,6 +1,6 @@
 {
-  "name": "@7img/ckeditor5-build-full",
-  "version": "1.0.0",
+  "name": "@7im/ckeditor5-build-full",
+  "version": "1.0.1",
   "description": "Custom CKeditor build",
   "main": "./build/ckeditor.js",
   "files": [
@@ -46,10 +46,12 @@
   "author": "CKSource (http://cksource.com/)",
   "license": "GPL-2.0-or-later",
   "homepage": "https://ckeditor.com/ckeditor-5",
-  "bugs": "https://github.com/ckeditor/ckeditor5/issues",
+  "bugs": {
+    "url": "https://github.com/ckeditor/ckeditor5/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/7img/ckeditor5-build-full.git"
+    "url": "git+https://github.com/7img/ckeditor5-build-full.git"
   },
   "scripts": {
     "build": "webpack --mode production",
@@ -69,5 +71,9 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {}
 }
