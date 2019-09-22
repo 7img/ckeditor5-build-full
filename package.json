@@ -1,25 +1,7 @@
 {
-  "name": "@ckeditor/ckeditor5-build-classic",
-  "version": "12.4.0",
-  "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
-  "keywords": [
-    "ckeditor5-build",
-    "ckeditor",
-    "ckeditor5",
-    "ckeditor 5",
-    "wysiwyg",
-    "rich text",
-    "editor",
-    "html",
-    "contentEditable",
-    "editing",
-    "operational transformation",
-    "ot",
-    "collaboration",
-    "collaborative",
-    "real-time",
-    "framework"
-  ],
+  "name": "@7img/ckeditor5-build-full",
+  "version": "1.0.0",
+  "description": "Custom CKeditor build",
   "main": "./build/ckeditor.js",
   "files": [
     "build"
@@ -36,6 +18,7 @@
     "@ckeditor/ckeditor5-easy-image": "^11.0.5",
     "@ckeditor/ckeditor5-editor-classic": "^12.1.4",
     "@ckeditor/ckeditor5-essentials": "^11.0.5",
+    "@ckeditor/ckeditor5-font": "^11.2.2",
     "@ckeditor/ckeditor5-heading": "^11.0.5",
     "@ckeditor/ckeditor5-image": "^14.0.0",
     "@ckeditor/ckeditor5-link": "^11.1.2",
@@ -66,7 +49,7 @@
   "bugs": "https://github.com/ckeditor/ckeditor5/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
+    "url": "https://github.com/7img/ckeditor5-build-full.git"
   },
   "scripts": {
     "build": "webpack --mode production",
