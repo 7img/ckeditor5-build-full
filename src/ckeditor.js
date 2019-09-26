@@ -13,6 +13,7 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Clipboard from '@ckeditor/ckeditor5-clipboard/src/clipboard';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -44,6 +45,7 @@ ClassicEditor.builtinPlugins = [
 	Alignment,
 	Bold,
 	Italic,
+	Underline,
 	Clipboard,
 	BlockQuote,
 	CKFinder,
@@ -90,19 +92,10 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	image: {
-		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
-		]
+		toolbar: ['imageStyle:full', 'imageStyle:side', '|', 'imageTextAlternative']
 	},
 	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
+		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
 	},
 	language: 'en',
 	fontFamily: {
@@ -167,7 +160,7 @@ ClassicEditor.defaultConfig = {
 			'Ubuntu Condensed',
 			'Ubuntu',
 			'Varela Round',
-			'Yanone Kaffeesatz',
+			'Yanone Kaffeesatz'
 		]
 	},
 	fontSize: {
@@ -200,6 +193,6 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	alignment: {
-		options: [ 'left', 'center', 'right' ]
+		options: ['left', 'center', 'right']
 	}
 };

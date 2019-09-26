@@ -71,11 +71,6 @@
     "build/**",
     "packages/**"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "directories": {
     "test": "tests"
   }
