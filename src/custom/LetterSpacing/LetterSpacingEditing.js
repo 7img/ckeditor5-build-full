@@ -1,99 +1,59 @@
-import Widget from '@ckeditor/ckeditor5-widget/src/widget';
+/**
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ */
+
+/**
+ * @module font/fontsize/fontsizeediting
+ */
+
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import LetterSpacingCommand from './';
-import { toWidget } from '@ckeditor/ckeditor5-widget/src/utils';
 
-const name = 'letterSpacing';
+import { LetterSpacingCommand } from './';
+import { normalizeOptions, buildDefinition, LETTER_SPACING } from './utils';
 
+/**
+ * The letter spacing editing feature.
+ */
 class LetterSpacingEditing extends Plugin {
-	static get requires() {
-		return [ Widget ];
+	/**
+	 * @inheritDoc
+	 */
+	constructor( editor ) {
+		super( editor );
+
+		// Define default configuration using named presets.
+		editor.config.define( LETTER_SPACING, {
+			options: [
+				'tiny',
+				'small',
+				'default',
+				'big',
+				'huge'
+			]
+		} );
+
+		// Define view to model conversion.
+		const options = normalizeOptions( this.editor.config.get( 'letterSpacing.options' ) ).filter( item => item.model );
+		const definition = buildDefinition( LETTER_SPACING, options );
+
+		// Set-up the two-way conversion.
+		editor.conversion.attributeToElement( definition );
+		editor.commands.add( LETTER_SPACING, new LetterSpacingCommand( editor ) );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	init() {
-		console.warn( 'LetterSpacingEditing#init() got called' );
+		const editor = this.editor;
 
-		this._defineSchema();
-		this._defineConverters();
-
-		this.editor.commands.add( name, new LetterSpacingCommand( this.editor ) );
-
-		// this.editor.editing.mapper.on(
-		// 	'viewToModelPosition',
-		// 	viewToModelPositionOutsideModelElement(this.editor.model, viewElement => viewElement.hasClass( name ) )
-		// )
-		//
-
-		this.editor.config.define( 'placeholderConfig', {
-			types: [ 'date', 'first name', 'surname' ]
+		// Allow fontSize attribute on text nodes.
+		editor.model.schema.extend( '$text', { allowAttributes: LETTER_SPACING } );
+		editor.model.schema.setAttributeProperties( LETTER_SPACING, {
+			isFormatting: true,
+			copyOnEnter: true
 		} );
-	}
-
-	_defineSchema() {
-		const schema = this.editor.model.schema;
-
-		schema.register( name, {
-			// Allow wherever text is allowed:
-			allowWhere: '$text',
-
-			// The placeholder will act as an inline node:
-			isInline: true,
-
-			// The inline widget is self-contained so it cannot be split by the caret and it can be selected:
-			isObject: true,
-
-			// The placeholder can have many types, like date, name, surname, etc:
-			allowAttributes: [ 'name' ]
-		} );
-	}
-
-	_defineConverters() {
-		const conversion = this.editor.conversion;
-
-		conversion.for( 'upcast' ).elementToElement( {
-			view: {
-				name: 'span',
-				classes: [ name ]
-			},
-			model: ( viewElement, modelWriter ) => {
-				// Extract the "name" from "{name}".
-				const name = viewElement.getChild( 0 ).data.slice( 1, -1 );
-
-				return modelWriter.createElement( name, {
-					name
-				} );
-			}
-		} );
-
-		conversion.for( 'editingDowncast' ).elementToElement( {
-			model: name,
-			view: ( modelItem, viewWriter ) => {
-				const widgetElement = createPlaceholderView( modelItem, viewWriter );
-
-				// Enable widget handling on a placeholder element inside the editing view.
-				return toWidget( widgetElement, viewWriter );
-			}
-		} );
-
-		conversion.for( 'dataDowncast' ).elementToElement( {
-			model: name,
-			view: createPlaceholderView
-		} );
-
-		// Helper method for both downcast converters.
-		function createPlaceholderView( modelItem, viewWriter ) {
-			const name = modelItem.getAttribute( 'name' );
-
-			const placeholderView = viewWriter.createContainerElement( 'span', {
-				class: name
-			} );
-
-			// Insert the placeholder name (as a text).
-			const innerText = viewWriter.createText( '{' + name + '}' );
-			viewWriter.insert( viewWriter.createPositionAt( placeholderView, 0 ), innerText );
-
-			return placeholderView;
-		}
 	}
 }
 

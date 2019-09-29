@@ -34,6 +34,8 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import LetterSpacing from './custom/LetterSpacing/LetterSpacing';
+import LineHeight from './custom/LineHeight/LineHeight';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -66,7 +68,11 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	FontFamily,
 	FontSize,
-	Base64UploadAdapter
+	Base64UploadAdapter,
+	LetterSpacing,
+	// LineHeight,
+	// Test,
+	LineHeight,
 ];
 
 // Editor configuration.
@@ -155,7 +161,7 @@ ClassicEditor.defaultConfig = {
 			'Roboto',
 			'Ruslan Display',
 			'Signika',
-			'Slabo 27px',
+			'Slabo',
 			'Titillium Web',
 			'Ubuntu Condensed',
 			'Ubuntu',
@@ -190,6 +196,20 @@ ClassicEditor.defaultConfig = {
 			42,
 			48,
 			56
+		]
+	},
+	letterSpacing: {
+		options: [
+			'default',
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9
 		]
 	},
 	alignment: {

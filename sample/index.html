@@ -28,9 +28,16 @@
 
 <script src="../build/ckeditor.js"></script>
 <script>
+
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
+
+			// "letterSpacing"
+
+			console.log(editor);
+
+			editor.execute('letterSpacing', '10px');
 		} )
 		.catch( err => {
 			console.error( err.stack );
