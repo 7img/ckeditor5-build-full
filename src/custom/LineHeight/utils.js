@@ -17,7 +17,12 @@ export const supportedOptions = [
 	'1.4em',
 	'1.6em',
 	'1.8em',
-	'2em'
+	'2em',
+	'2.2em',
+	'2.4em',
+	'2.6em',
+	'2.8em',
+	'3em'
 ];
 
 export const PLUGIN_NAME = 'lineHeight';
