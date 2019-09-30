@@ -6,7 +6,19 @@
  * * `'center'`,
  * * `'justify'`
  */
-export const supportedOptions = [ 'default', '0.8em', '1em', '1.2em', '1.4em', '1.6em', '1.8em', '2em' ];
+export const supportedOptions = [
+	'default',
+	'0.2em',
+	'0.4em',
+	'0.6em',
+	'0.8em',
+	'1em',
+	'1.2em',
+	'1.4em',
+	'1.6em',
+	'1.8em',
+	'2em'
+];
 
 export const PLUGIN_NAME = 'lineHeight';
 
@@ -16,8 +28,8 @@ export const PLUGIN_NAME = 'lineHeight';
  * @param {String} option The option value to check.
  * @returns {Boolean}
  */
-export function isSupported( option ) {
-	return supportedOptions.includes( option );
+export function isSupported(option) {
+	return supportedOptions.includes(option);
 }
 
 /**
@@ -28,6 +40,6 @@ export function isSupported( option ) {
  * @param {module:utils/locale~Locale} locale The {@link module:core/editor/editor~Editor#locale} instance.
  * @returns {Boolean}
  */
-export function isDefault( value ) {
+export function isDefault(value) {
 	return value === 'default';
 }
