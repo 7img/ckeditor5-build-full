@@ -21,12 +21,12 @@ export default class LineHeightEditing extends Plugin {
 	/**
 	 * @inheritDoc
 	 */
-	constructor( editor ) {
-		super( editor );
+	constructor(editor) {
+		super(editor);
 
-		editor.config.define( 'lineHeight', {
-			options: [ ...supportedOptions ]
-		} );
+		editor.config.define('lineHeight', {
+			options: [...supportedOptions]
+		});
 	}
 
 	/**
@@ -38,23 +38,25 @@ export default class LineHeightEditing extends Plugin {
 		const schema = editor.model.schema;
 
 		// Filter out unsupported options.
-		const enabledOptions = editor.config.get( 'lineHeight.options' ).filter( isSupported );
+		const enabledOptions = editor.config.get('lineHeight.options').filter(isSupported);
 
 		// Allow alignment attribute on all blocks.
-		schema.extend( '$block', { allowAttributes: 'lineHeight' } );
-		editor.model.schema.setAttributeProperties( 'lineHeight', { isFormatting: true } );
+		schema.extend('$block', { allowAttributes: 'lineHeight' });
+		editor.model.schema.setAttributeProperties('lineHeight', { isFormatting: true });
 
-		const definition = _buildDefinition( enabledOptions.filter( option => !isDefault( option, locale ) ) );
+		const definition = _buildDefinition(
+			enabledOptions.filter(option => !isDefault(option, locale))
+		);
 
-		editor.conversion.attributeToAttribute( definition );
+		editor.conversion.attributeToAttribute(definition);
 
-		editor.commands.add( 'lineHeight', new LineHeightCommand( editor ) );
+		editor.commands.add('lineHeight', new LineHeightCommand(editor));
 	}
 }
 
 // Utility function responsible for building converter definition.
 // @private
-function _buildDefinition( options ) {
+function _buildDefinition(options) {
 	const definition = {
 		model: {
 			key: 'lineHeight',
@@ -63,8 +65,8 @@ function _buildDefinition( options ) {
 		view: {}
 	};
 
-	for ( const option of options ) {
-		definition.view[ option ] = {
+	for (const option of options) {
+		definition.view[option] = {
 			key: 'style',
 			value: {
 				'line-height': option

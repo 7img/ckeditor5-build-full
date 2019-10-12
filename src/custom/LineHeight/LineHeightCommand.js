@@ -20,13 +20,13 @@ import { isDefault, PLUGIN_NAME } from './utils';
 export default class LineHeightCommand extends Command {
 	refresh() {
 		const editor = this.editor;
-		const firstBlock = first( editor.model.document.selection.getSelectedBlocks() );
+		const firstBlock = first(editor.model.document.selection.getSelectedBlocks());
 
 		// As first check whether to enable or disable the command as the value will always be false if the command cannot be enabled.
-		this.isEnabled = !!firstBlock && this._canBeLineHeighted( firstBlock );
+		this.isEnabled = !!firstBlock && this._canBeLineHeighted(firstBlock);
 
-		if ( this.isEnabled && firstBlock.hasAttribute( 'lineHeight' ) ) {
-			this.value = firstBlock.getAttribute( 'lineHeight' );
+		if (this.isEnabled && firstBlock.hasAttribute('lineHeight')) {
+			this.value = firstBlock.getAttribute('lineHeight');
 		} else {
 			this.value = 'inherit';
 		}
@@ -41,7 +41,7 @@ export default class LineHeightCommand extends Command {
 	 * @param {String} [options.value] The value to apply.
 	 * @fires execute
 	 */
-	execute( options = {} ) {
+	execute(options = {}) {
 		const editor = this.editor;
 		const locale = editor.locale;
 		const model = editor.model;
@@ -49,18 +49,21 @@ export default class LineHeightCommand extends Command {
 
 		const value = options.value;
 
-		model.change( writer => {
+		model.change(writer => {
 			// Get only those blocks from selected that can have alignment set
-			const blocks = Array.from( doc.selection.getSelectedBlocks() ).filter( block => this._canBeLineHeighted( block ) );
-			const currentLineHeight = blocks[ 0 ].getAttribute( 'lineHeight' );
-			const removeLineHeight = isDefault( value, locale ) || currentLineHeight === value || !value;
+			const blocks = Array.from(doc.selection.getSelectedBlocks()).filter(block =>
+				this._canBeLineHeighted(block)
+			);
+			const currentLineHeight = blocks[0].getAttribute('lineHeight');
+			const removeLineHeight =
+				isDefault(value, locale) || currentLineHeight === value || !value;
 
-			if ( removeLineHeight ) {
-				removeLineHeightFromSelection( blocks, writer );
+			if (removeLineHeight) {
+				removeLineHeightFromSelection(blocks, writer);
 			} else {
-				setLineHeightOnSelection( blocks, writer, value );
+				setLineHeightOnSelection(blocks, writer, value);
 			}
-		} );
+		});
 	}
 
 	/**
@@ -70,23 +73,23 @@ export default class LineHeightCommand extends Command {
 	 * @param {module:engine/model/element~Element} block The block to be checked.
 	 * @returns {Boolean}
 	 */
-	_canBeLineHeighted( block ) {
-		return this.editor.model.schema.checkAttribute( block, PLUGIN_NAME );
+	_canBeLineHeighted(block) {
+		return this.editor.model.schema.checkAttribute(block, PLUGIN_NAME);
 	}
 }
 
 // Removes the alignment attribute from blocks.
 // @private
-function removeLineHeightFromSelection( blocks, writer ) {
-	for ( const block of blocks ) {
-		writer.removeAttribute( PLUGIN_NAME, block );
+function removeLineHeightFromSelection(blocks, writer) {
+	for (const block of blocks) {
+		writer.removeAttribute(PLUGIN_NAME, block);
 	}
 }
 
 // Sets the alignment attribute on blocks.
 // @private
-function setLineHeightOnSelection( blocks, writer, alignment ) {
-	for ( const block of blocks ) {
-		writer.setAttribute( PLUGIN_NAME, alignment, block );
+function setLineHeightOnSelection(blocks, writer, alignment) {
+	for (const block of blocks) {
+		writer.setAttribute(PLUGIN_NAME, alignment, block);
 	}
 }

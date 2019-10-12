@@ -28,7 +28,7 @@ export default class LineHeight extends Plugin {
 	 * @inheritDoc
 	 */
 	static get requires() {
-		return [ LineHeightEditing ];
+		return [LineHeightEditing];
 	}
 
 	/**
