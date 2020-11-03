@@ -7,22 +7,22 @@
  * * `'justify'`
  */
 export const supportedOptions = [
-	'default',
-	'0.2em',
-	'0.4em',
-	'0.6em',
-	'0.8em',
-	'1em',
-	'1.2em',
-	'1.4em',
-	'1.6em',
-	'1.8em',
-	'2em',
-	'2.2em',
-	'2.4em',
-	'2.6em',
-	'2.8em',
-	'3em'
+  'default',
+  '0.2em',
+  '0.4em',
+  '0.6em',
+  '0.8em',
+  '1em',
+  '1.2em',
+  '1.4em',
+  '1.6em',
+  '1.8em',
+  '2em',
+  '2.2em',
+  '2.4em',
+  '2.6em',
+  '2.8em',
+  '3em'
 ];
 
 export const PLUGIN_NAME = 'lineHeight';
@@ -34,7 +34,7 @@ export const PLUGIN_NAME = 'lineHeight';
  * @returns {Boolean}
  */
 export function isSupported(option) {
-	return supportedOptions.includes(option);
+  return supportedOptions.includes(option);
 }
 
 /**
@@ -46,5 +46,5 @@ export function isSupported(option) {
  * @returns {Boolean}
  */
 export function isDefault(value) {
-	return value === 'default';
+  return value === 'default';
 }

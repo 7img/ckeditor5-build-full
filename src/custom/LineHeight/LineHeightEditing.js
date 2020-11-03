@@ -18,61 +18,61 @@ import { isDefault, isSupported, supportedOptions, PLUGIN_NAME } from './utils';
  * @extends module:core/plugin~Plugin
  */
 export default class LineHeightEditing extends Plugin {
-	/**
-	 * @inheritDoc
-	 */
-	constructor(editor) {
-		super(editor);
+  /**
+   * @inheritDoc
+   */
+  constructor(editor) {
+    super(editor);
 
-		editor.config.define('lineHeight', {
-			options: [...supportedOptions]
-		});
-	}
+    editor.config.define('lineHeight', {
+      options: [...supportedOptions]
+    });
+  }
 
-	/**
-	 * @inheritDoc
-	 */
-	init() {
-		const editor = this.editor;
-		const locale = editor.locale;
-		const schema = editor.model.schema;
+  /**
+   * @inheritDoc
+   */
+  init() {
+    const editor = this.editor;
+    const locale = editor.locale;
+    const schema = editor.model.schema;
 
-		// Filter out unsupported options.
-		const enabledOptions = editor.config.get('lineHeight.options').filter(isSupported);
+    // Filter out unsupported options.
+    const enabledOptions = editor.config.get('lineHeight.options').filter(isSupported);
 
-		// Allow alignment attribute on all blocks.
-		schema.extend('$block', { allowAttributes: 'lineHeight' });
-		editor.model.schema.setAttributeProperties('lineHeight', { isFormatting: true });
+    // Allow alignment attribute on all blocks.
+    schema.extend('$block', { allowAttributes: 'lineHeight' });
+    editor.model.schema.setAttributeProperties('lineHeight', { isFormatting: true });
 
-		const definition = _buildDefinition(
-			enabledOptions.filter(option => !isDefault(option, locale))
-		);
+    const definition = _buildDefinition(
+      enabledOptions.filter(option => !isDefault(option, locale))
+    );
 
-		editor.conversion.attributeToAttribute(definition);
+    editor.conversion.attributeToAttribute(definition);
 
-		editor.commands.add('lineHeight', new LineHeightCommand(editor));
-	}
+    editor.commands.add('lineHeight', new LineHeightCommand(editor));
+  }
 }
 
 // Utility function responsible for building converter definition.
 // @private
 function _buildDefinition(options) {
-	const definition = {
-		model: {
-			key: 'lineHeight',
-			values: options.slice()
-		},
-		view: {}
-	};
+  const definition = {
+    model: {
+      key: 'lineHeight',
+      values: options.slice()
+    },
+    view: {}
+  };
 
-	for (const option of options) {
-		definition.view[option] = {
-			key: 'style',
-			value: {
-				'line-height': option
-			}
-		};
-	}
+  for (const option of options) {
+    definition.view[option] = {
+      key: 'style',
+      value: {
+        'line-height': option
+      }
+    };
+  }
 
-	return definition;
+  return definition;
 }

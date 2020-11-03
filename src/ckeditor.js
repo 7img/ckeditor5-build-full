@@ -33,6 +33,9 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import LetterSpacing from './custom/LetterSpacing/LetterSpacing';
 import LineHeight from './custom/LineHeight/LineHeight';
@@ -69,6 +72,8 @@ ClassicEditor.builtinPlugins = [
   TableToolbar,
   FontFamily,
   FontSize,
+  FontColor,
+  FontBackgroundColor,
   Base64UploadAdapter,
   LetterSpacing,
   // LineHeight,

@@ -24,17 +24,17 @@ import LineHeightEditing from './LineHeightEditing';
  * @extends module:core/plugin~Plugin
  */
 export default class LineHeight extends Plugin {
-	/**
-	 * @inheritDoc
-	 */
-	static get requires() {
-		return [LineHeightEditing];
-	}
+  /**
+   * @inheritDoc
+   */
+  static get requires() {
+    return [LineHeightEditing];
+  }
 
-	/**
-	 * @inheritDoc
-	 */
-	static get pluginName() {
-		return 'LineHeight';
-	}
+  /**
+   * @inheritDoc
+   */
+  static get pluginName() {
+    return 'LineHeight';
+  }
 }
