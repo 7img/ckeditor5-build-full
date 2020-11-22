@@ -210,5 +210,14 @@ ClassicEditor.defaultConfig = {
   },
   alignment: {
     options: ['left', 'center', 'right']
+  },
+  mediaEmbed: {
+    removeProviders: ['instagram', 'twitter', 'googleMaps', 'flickr', 'facebook'],
+    extraProviders: [
+      {
+        name: 'custom',
+        url: /.*/
+      }
+    ]
   }
 };
