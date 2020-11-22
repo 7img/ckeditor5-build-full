@@ -216,7 +216,20 @@ ClassicEditor.defaultConfig = {
     extraProviders: [
       {
         name: 'custom',
-        url: /.*/
+        url: /.*/,
+        html: match => {
+          const url = match[0];
+
+          return (
+            '<div style="position: relative;">' +
+            `<video controls>
+                <source src="${url}">
+                Sorry, your browser doesn't support embedded videos.
+            ` +
+            '</video>' +
+            '</div>'
+          );
+        }
       }
     ]
   }
