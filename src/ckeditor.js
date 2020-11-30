@@ -32,12 +32,12 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
-import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
-import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
-
+// import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+// import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+// import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+// import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+// import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+//
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import LetterSpacing from './custom/LetterSpacing/LetterSpacing';
 import LineHeight from './custom/LineHeight/LineHeight';
@@ -51,10 +51,10 @@ ClassicEditor.builtinPlugins = [
   UploadAdapter,
   Autoformat,
   Alignment,
+  Clipboard,
   Bold,
   Italic,
   Underline,
-  Clipboard,
   BlockQuote,
   CKFinder,
   EasyImage,
@@ -73,13 +73,13 @@ ClassicEditor.builtinPlugins = [
   PasteFromOffice,
   Table,
   TableToolbar,
-  FontFamily,
-  FontSize,
-  FontColor,
-  FontBackgroundColor,
+  // FontFamily,
+  // FontSize,
+  // FontColor,
+  // FontBackgroundColor,
   Base64UploadAdapter,
   LetterSpacing,
-  // LineHeight,
+  LineHeight,
   // Test,
   LineHeight,
   HiddenText
