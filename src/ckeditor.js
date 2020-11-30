@@ -32,11 +32,11 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-// import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 // import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-// import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
-// import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
-// import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 //
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import LetterSpacing from './custom/LetterSpacing/LetterSpacing';
@@ -65,7 +65,7 @@ ClassicEditor.builtinPlugins = [
   ImageToolbar,
   ImageUpload,
   ImageResize,
-	Indent,
+  Indent,
   Link,
   List,
   MediaEmbed,
@@ -73,14 +73,13 @@ ClassicEditor.builtinPlugins = [
   PasteFromOffice,
   Table,
   TableToolbar,
-  // FontFamily,
-  // FontSize,
-  // FontColor,
-  // FontBackgroundColor,
+  FontFamily,
+  FontSize,
+  FontColor,
+  FontBackgroundColor,
   Base64UploadAdapter,
   LetterSpacing,
   LineHeight,
-  // Test,
   LineHeight,
   HiddenText
 ];
@@ -96,10 +95,10 @@ ClassicEditor.defaultConfig = {
       'link',
       'bulletedList',
       'numberedList',
-			'|',
-			'indent',
-			'outdent',
-			'|',
+      '|',
+      'indent',
+      'outdent',
+      '|',
       'imageUpload',
       'blockQuote',
       'insertTable',
