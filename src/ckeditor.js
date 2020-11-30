@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -24,6 +24,7 @@ import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
@@ -32,6 +33,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
@@ -63,6 +65,7 @@ ClassicEditor.builtinPlugins = [
   ImageToolbar,
   ImageUpload,
   ImageResize,
+	Indent,
   Link,
   List,
   MediaEmbed,
@@ -93,6 +96,10 @@ ClassicEditor.defaultConfig = {
       'link',
       'bulletedList',
       'numberedList',
+			'|',
+			'indent',
+			'outdent',
+			'|',
       'imageUpload',
       'blockQuote',
       'insertTable',
