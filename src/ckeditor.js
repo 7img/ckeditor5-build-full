@@ -42,6 +42,7 @@ import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64u
 import LetterSpacing from './custom/LetterSpacing/LetterSpacing';
 import LineHeight from './custom/LineHeight/LineHeight';
 import HiddenText from './custom/HiddenText/HiddenText';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -81,7 +82,8 @@ ClassicEditor.builtinPlugins = [
   LetterSpacing,
   LineHeight,
   LineHeight,
-  HiddenText
+  HiddenText,
+  CloudServices
 ];
 
 // Editor configuration.
@@ -184,31 +186,31 @@ ClassicEditor.defaultConfig = {
   },
   fontSize: {
     options: [
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
+      '8px',
+      '9px',
+      '10px',
+      '11px',
+      '12px',
+      '13px',
       'default',
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      36,
-      42,
-      48,
-      56
+      '15px',
+      '16px',
+      '17px',
+      '18px',
+      '19px',
+      '20px',
+      '21px',
+      '22px',
+      '23px',
+      '24px',
+      '25px',
+      '26px',
+      '27px',
+      '28px',
+      '36px',
+      '42px',
+      '48px',
+      '56px'
     ]
   },
   letterSpacing: {
